@@ -7,10 +7,10 @@ const Footer = () => {
       <div className="flex flex-col w-full sm:w-[50%]">
         <div className="flex items-center mb-2">
           <img src={logo} alt="tender-filecoin-logo" />
-          <h3 className="font-bold text-xl ml-2">TenderHive</h3>
+          <h3 className="font-bold text-xl ml-2">BidTrove</h3>
         </div>
         <p className="text-sm ">
-        TenderHive is a blockchain based application that makes it easy to
+        BidTroveis a blockchain based application that makes it easy to
           advertise and apply for tenders with the highest level of
           transparency.
         </p>
@@ -42,13 +42,13 @@ const Footer = () => {
         <div className="my-2">
           <h3 className="font-bold mb-3">Contact Us</h3>
           <h4 className="text-sm my-1 text-[#ffffffa1]">+254 701 707 772</h4>
-          <h4 className="text-sm my-1 text-[#ffffffa1]"> TenderHive@gmail.com</h4>
+          <h4 className="text-sm my-1 text-[#ffffffa1]"> BidTrove@gmail.com</h4>
         </div>
       </div>
     </div>
     <hr />
     <footer className="text-white">
-      &copy;Copyright 2023, All Rights Reserved by  TenderHive
+      &copy;Copyright 2024, All Rights Reserved by  BidTrove 
     </footer>
     </section>
   );

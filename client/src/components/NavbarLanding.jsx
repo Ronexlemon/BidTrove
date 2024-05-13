@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/svg/hederasvg.svg";
+import logo from "../assets/svg/lisklog.svg";
 
 const NavbarLanding = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -15,7 +15,7 @@ const NavbarLanding = () => {
       <nav className="flex justify-between md:justify-around items-center px-3 pt-3 ">
         <div className="flex items-center">
           <img className="w-10"  src={logo} alt="tender-hedera-logo" />
-          <h3 className="font-bold text-xl ml-2">TenderHive</h3>
+          <h3 className="font-bold text-xl ml-2">BIDTROVE</h3>
         </div>
 
         {/* desktop menu */}
