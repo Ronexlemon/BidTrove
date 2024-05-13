@@ -1,6 +1,6 @@
 const {ethers} = require("hardhat");
 
-
+//BidTroveAddress 0x5FbDB2315678afecb367f032d93F642f64180aa3
 async function main(){
     //get the contract
     const BidTroveContract = await ethers.getContractFactory("Bider");
