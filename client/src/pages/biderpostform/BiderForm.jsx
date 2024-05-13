@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Web3 from "../../web3-storage/web3";
 import { Web3Storage, getFilesFromPath } from "web3.storage";
 import { TenderHiveContractAddress } from "../../contractAddress/address";
-
+import {Cloudinary} from "@cloudinary/url-gen";
 
 import {providers, Contract } from "ethers";
 //let token = import.meta.env.VITE_token;
@@ -86,6 +86,35 @@ const BiderForm = () => {
       alert(error);
     }
   };
+
+  //upload
+
+  const uploadImage = async (image) => {
+    
+    const data = new FormData();
+    data.append("file", image);
+    data.append(
+      "upload_preset",
+      "xixvyidr"
+    );
+    data.append("cloud_name","dkt32bf5c");
+    data.append("folder", "Cloudinary-React");
+
+    try {
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/dkt32bf5c/image/upload`,
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+      const res = await response.json();
+      
+     return res.public_id
+    } catch (error) {
+      console.log("error cloudinary")
+    }
+  };
   // const onSubmitHandler = async (event) => {
   //   event.preventDefault();
   //   const form = event.target;
@@ -124,17 +153,19 @@ const BiderForm = () => {
       }
 
       const file = files[0];
-      const storage = new Web3Storage({ token });
+      const urls = await uploadImage(file);
+      // console.log("cloud url",urls)
+      // const storage = new Web3Storage({ token });
 
-      console.log(`Uploading ${files.length} files`);
-      const cid = await storage.put(files);
-      console.log(
-        "Content added with CID:",
-        "https://" + cid + ".ipfs.w3s.link/" + `${file.name}`
-      );
-      const linkurl = "https://" + cid + ".ipfs.w3s.link/" + `${file.name}`;
+      // console.log(`Uploading ${files.length} files`);
+      // const cid = await storage.put(files);
+      // console.log(
+      //   "Content added with CID:",
+      //   "https://" + cid + ".ipfs.w3s.link/" + `${file.name}`
+      // );
+      // const linkurl = "https://" + cid + ".ipfs.w3s.link/" + `${file.name}`;
 
-      setTypeOfGoods(linkurl);
+      setTypeOfGoods(urls);
       setIsLoading(false);
     } catch (err) {
       setIsLoading(false);
