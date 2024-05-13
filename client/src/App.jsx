@@ -16,11 +16,44 @@ import TenderStatus from "./pages/tenderstatus/TenderStatus";
 import AllMyTenders from "./pages/tenderers/MyTenders";
 import MyBidsTenders from "./pages/bidders/MyBids";
 import Web3 from "./web3-storage/web3";
+import '@rainbow-me/rainbowkit/styles.css';
+import {
+  getDefaultConfig,
+  RainbowKitProvider,
+} from '@rainbow-me/rainbowkit';
+import { WagmiProvider } from 'wagmi';
+import {
+  mainnet,
+  polygon,
+  optimism,
+  arbitrum,
+  base,
+  liskSepolia,
+  hederaTestnet
+  
+} from 'wagmi/chains';
+import {
+  QueryClientProvider,
+  QueryClient,
+} from "@tanstack/react-query";
 
+
+
+const config = getDefaultConfig({
+  appName: 'My RainbowKit App',
+  projectId: '9827d0c3c86b7e45f4414aff9994a436',
+  chains: [mainnet, polygon, optimism, arbitrum, base,liskSepolia,hederaTestnet],
+  // ssr: true, // If your dApp uses server side rendering (SSR)
+});
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="">
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider>
+        <div className="">
       
       <Router>
         <Routes>
@@ -29,6 +62,10 @@ function App() {
         </Routes>
       </Router>
     </div>
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+   
   );
 }
 

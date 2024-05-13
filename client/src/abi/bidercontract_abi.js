@@ -106,7 +106,7 @@ export const BiderAbi = [
             "type": "uint256"
           }
         ],
-        "internalType": "struct TenderPoster.TenderDetails[]",
+        "internalType": "struct BidTrove.TenderDetails[]",
         "name": "",
         "type": "tuple[]"
       }
@@ -250,7 +250,7 @@ export const BiderAbi = [
             "type": "uint256"
           }
         ],
-        "internalType": "struct TenderPoster.TenderDetails[]",
+        "internalType": "struct BidTrove.TenderDetails[]",
         "name": "tenders",
         "type": "tuple[]"
       }

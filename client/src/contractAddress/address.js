@@ -1,1 +1,1 @@
-export const TenderHiveContractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+export const TenderHiveContractAddress = "0x17cAC4066211b5FCeEDCee67c7ae18950417f4c9" // "0xE50A2E68f31e899D6e794314823cD2ac126BD764"

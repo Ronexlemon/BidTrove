@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useWriteContract } from 'wagmi'
 
 import Web3Modal from "web3modal";
 import { providers, Contract } from "ethers";
@@ -16,6 +17,7 @@ const Tenders = () => {
   let btnapprove = useRef(null);
   //let Tenders =[];
   const [Tenders, setTenders] = useState([]);
+  const { writeContractAsync:writePostTender } = useWriteContract()
   
   const [tenderslength, setLength] = useState(0);
   const web3ModalRef = useRef();
@@ -29,17 +31,22 @@ const Tenders = () => {
   //  .addEventListener("click", async (e) =>
   const btnPosts = async () => {
     const params = [companyName, description, deadline,contact, email, amount];
+    
 
     try {
-      const signer = await getProviderOrSigner(true);
-      const tenderContract = new Contract(TenderHiveContractAddress, BiderAbi, signer);
-      const results = await tenderContract.writeTenderDetails(...params);
-      // .send({from: address})
+      const result = await  writePostTender({ 
+       abi: BiderAbi,
+        address: TenderHiveContractAddress,
+        functionName: 'writeTenderDetails',
+        args: [companyName,description,deadline,contact,email,amount     
+        ],
+     })
+      
       alert("add results successful");
       alert(`🎉 You successfully added "${params[0]}".`);
     } catch (error) {
-      alert("the error is", error);
-      console.log(error);
+     
+      console.log("error is",error);
     }
     
     // getAllTenders()
@@ -141,14 +148,14 @@ const Tenders = () => {
   //load content on reload
   useEffect(() => {
     web3ModalRef.current = new Web3Modal({
-      network: "lisk",
+      network: "Lisk Sepolia Testnet",
       providerOptions: {},
       disableInjectedProvider: false,
       cacheProvider: false,
     });
     //getTotalTendersLength();
     // getAllTenders();
-    getProviderOrSigner();
+   // getProviderOrSigner();
     //renderProducts();
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [walletconnect, tenderslength]);

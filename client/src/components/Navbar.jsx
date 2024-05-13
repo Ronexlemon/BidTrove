@@ -8,6 +8,7 @@ import Web3Modal from "web3modal";
 import { useRef, useEffect, useState,useCallback } from "react";
 import {  providers,Contract } from "ethers";
 import Web3 from "web3";
+import ConnectBTN from "./ButtonConnect";
 
 
 
@@ -43,39 +44,39 @@ const Navbar = () => {
   const [BidTenders, setBidTenders] = useState([]);
   const [index, setIndex] = useState();
   
-  const Web3ModalRef = useRef();
-  //provide sugner or provider
-  const connectWallet = async (needSigner = false) => {
-    const provider = await Web3ModalRef.current.connect();
-    const web3Provider = new providers.Web3Provider(provider);
-    // check if network is polygon hermez
-    const { chainId } = await web3Provider.getNetwork();
-     const signer = web3Provider.getSigner();
-     const accounts = await signer.getAddress();
-    //setUserAccount(accounts);
+  // const Web3ModalRef = useRef();
+  // //provide sugner or provider
+  // const connectWallet = async (needSigner = false) => {
+  //   const provider = await Web3ModalRef.current.connect();
+  //   const web3Provider = new providers.Web3Provider(provider);
+  //   // check if network is polygon hermez
+  //   const { chainId } = await web3Provider.getNetwork();
+  //    const signer = web3Provider.getSigner();
+  //    const accounts = await signer.getAddress();
+  //   //setUserAccount(accounts);
    
-    if (chainId !== 4202) {
-      window.alert("Change network to LISK SEPOLIA");
-      throw new Error("Change network to LISK SEPOLIA ");
+  //   if (chainId !== 4202) {
+  //     window.alert("Change network to LISK SEPOLIA");
+  //     throw new Error("Change network to LISK SEPOLIA ");
      
-    }
-    setWalletConnect(true)
-    if (needSigner) {
-      const signer = web3Provider.getSigner();
-      return signer;
-    }
-    return web3Provider;
-  };
-  useEffect(() => {
-    Web3ModalRef.current = new Web3Modal({
-      network: "lisk",
-      providerOptions: {},
-      disableInjectedProvider: false,
-      cacheProvider: false,
-    });
-    connectWallet();
+  //   }
+  //   setWalletConnect(true)
+  //   if (needSigner) {
+  //     const signer = web3Provider.getSigner();
+  //     return signer;
+  //   }
+  //   return web3Provider;
+  // };
+  // useEffect(() => {
+  //   Web3ModalRef.current = new Web3Modal({
+  //     network: "lisk",
+  //     providerOptions: {},
+  //     disableInjectedProvider: false,
+  //     cacheProvider: false,
+  //   });
+  //   connectWallet();
     
-  }, []);
+  // }, []);
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -105,7 +106,7 @@ const Navbar = () => {
         color={currentColor}
         icon={<AiOutlineMenu />}
       />
-      {walletconnect == true?<button
+      {/* {walletconnect == true?<button
         onClick={()=>{connectWallet()}}
         className="px-4 py-2 font-josefin text-white bg-green-400 rounded-md shadow-md hover:shadow-lg"
       >
@@ -117,7 +118,8 @@ const Navbar = () => {
       >
         
         Connect Wallet
-      </button>}
+      </button>} */}
+      <ConnectBTN/>
      
     </div>
   );
