@@ -96,9 +96,9 @@ const AllMyTenders = () => {
     const accounts = await signer.getAddress();
      setUserAccount(accounts);
      console.log("chain idssss",chainId)
-    if (chainId !== 296) {
-      window.alert("Change network to hedera Testnet");
-      throw new Error("Change network to hedera Testnet ");
+    if (chainId !== 4202) {
+      window.alert("Change network to LISK SEPOLIA");
+      throw new Error("Change network to LISK SEPOLIA ");
     }
     if (needSigner) {
       const signer = web3Provider.getSigner();
@@ -108,7 +108,7 @@ const AllMyTenders = () => {
   };
   useEffect(() => {
     Web3ModalRef.current = new Web3Modal({
-      network: "hedera",
+      network: "Lisk",
       providerOptions: {},
       disableInjectedProvider: false,
       cacheProvider: false,

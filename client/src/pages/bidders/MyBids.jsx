@@ -77,11 +77,11 @@ const MyBidsTenders = () => {
     const accounts = web3.currentProvider.selectedAddress;
    
     setUserAccount(accounts);
-    //check if user is connected to hedera network
+    //check if user is connected to lisk network
     const { chainId } = await web3Provider.getNetwork();
-    if (Number(chainId) !== 296) {
-      window.alert("Change network to Hedera Testnet");
-      throw new Error("Change network To Hedera Testnet");
+    if (Number(chainId) !== 4202) {
+      window.alert("Change network to LISK SEPOLIA");
+      throw new Error("Change network To LISK SEPOLIA");
     }
     const signer = web3Provider.getSigner();
     // const accounts = await signer.getAddress();
@@ -98,7 +98,7 @@ const MyBidsTenders = () => {
   };
   useEffect(() => {
     web3ModalRef.current = new Web3Modal({
-      network:"hedera",
+      network:"lisk",
       providerOptions: {},
       disableInjectedProvider: false,
       cacheProvider: false,

@@ -40,9 +40,9 @@ const BiderForm = () => {
     // check if network is polygon hermez
     const { chainId } = await web3Provider.getNetwork();
     
-    if (chainId !== 296) {
-      window.alert("Change network to hedera Testnet");
-      throw new Error("Change network to hedera Testnet");
+    if (chainId !== 4202) {
+      window.alert("Change network to LISK SEPOLIA");
+      throw new Error("Change network to LISK SEPOLIA");
     }
     if (needSigner) {
       const signer = web3Provider.getSigner();
@@ -53,7 +53,7 @@ const BiderForm = () => {
   //call the metamask on page reload
   useEffect(() => {
     Web3ModalRef.current = new Web3Modal({
-      network: "hedera",
+      network: "lisk",
       providerOptions: {},
       disableInjectedProvider: false,
       cacheProvider: false,

@@ -17,11 +17,11 @@ function TenderStatus() {
   const getProviderOrSigner = async (needSigner = false) => {
     const provider = await Web3ModalRef.current.connect();
     const web3Provider = new providers.Web3Provider(provider);
-    // check if network is hedera
+    // check if network is LISK
     const { chainId } = await web3Provider.getNetwork();
-    if (chainId !== 296) {
-      window.alert("Change network to hedera Testnet");
-      throw new Error("Change network To hedera Testnet");
+    if (chainId !== 4202) {
+      window.alert("Change network to LISK SEPOLIA");
+      throw new Error("Change network To LISK SEPOLIA");
     }
 
     if (needSigner) {
@@ -69,7 +69,7 @@ function TenderStatus() {
   // },[])
   useEffect(() => {
     Web3ModalRef.current = new Web3Modal({
-      network: "hedera",
+      network: "LISK",
       providerOptions: {},
       disableInjectedProvider: false,
       cacheProvider: false,

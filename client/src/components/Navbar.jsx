@@ -54,9 +54,9 @@ const Navbar = () => {
      const accounts = await signer.getAddress();
     //setUserAccount(accounts);
    
-    if (chainId !== 296) {
-      window.alert("Change network to Hedera Network");
-      throw new Error("Change network Hedera Network ");
+    if (chainId !== 4202) {
+      window.alert("Change network to LISK SEPOLIA");
+      throw new Error("Change network to LISK SEPOLIA ");
      
     }
     setWalletConnect(true)
@@ -68,7 +68,7 @@ const Navbar = () => {
   };
   useEffect(() => {
     Web3ModalRef.current = new Web3Modal({
-      network: "hedera",
+      network: "lisk",
       providerOptions: {},
       disableInjectedProvider: false,
       cacheProvider: false,

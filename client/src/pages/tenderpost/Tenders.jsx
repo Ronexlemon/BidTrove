@@ -56,11 +56,11 @@ const Tenders = () => {
     //connect metamask
     const provider = await web3ModalRef.current.connect();
     const web3Provider = new providers.Web3Provider(provider);
-    //check if user is connected to hedera
+    //check if user is connected to lisk
     const { chainId } = await web3Provider.getNetwork();
-    if (chainId !== 296) {
-      window.alert("Change network to hedera Testnet");
-      throw new Error("Change network To hedera Testnet ");
+    if (chainId !== 4202) {
+      window.alert("Change network to LISK SEPOLIA");
+      throw new Error("Change network To LISK SEPOLIA ");
     }
     
     //if need signer for transactions
@@ -141,7 +141,7 @@ const Tenders = () => {
   //load content on reload
   useEffect(() => {
     web3ModalRef.current = new Web3Modal({
-      network: "hedera",
+      network: "lisk",
       providerOptions: {},
       disableInjectedProvider: false,
       cacheProvider: false,

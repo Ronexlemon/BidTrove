@@ -17,12 +17,12 @@ function Approve() {
   const getProviderOrSigner = async (needSigner = false) => {
     const provider = await Web3ModalRef.current.connect();
     const web3Provider = new providers.Web3Provider(provider);
-    // check if network is Hedera 
+    // check if network is LISK
     const { chainId } = await web3Provider.getNetwork();
    
-    if (chainId !== 296) {
-      window.alert("Change network to Hedera Testnet");
-      throw new Error("Change network to Hedera Testnet ");
+    if (chainId !== 4202) {
+      window.alert("Change network to LISK SEPOLIA");
+      throw new Error("Change network to LISK SEPOLIA ");
     }
     if (needSigner) {
       const signer = web3Provider.getSigner();
