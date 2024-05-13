@@ -2,9 +2,9 @@
 pragma solidity ^0.8.1;
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 // import "@openzeppelin/contracts/access/Ownable.sol";
-import "./TenderOwner.sol";
+import "./BidtroveOwner.sol";
 
-contract Bider is TenderPoster {
+contract Bider is BidTrove {
     using SafeMath for uint;
     //include Rejected Status
 

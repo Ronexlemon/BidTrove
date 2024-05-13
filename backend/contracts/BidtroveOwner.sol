@@ -4,7 +4,7 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 // import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract TenderPoster {
+contract BidTrove {
     using SafeMath for uint;
     //enums for state
 

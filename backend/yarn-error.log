@@ -1,0 +1,58 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn install
+
+PATH: 
+  /home/lemon/.cargo/bin:/home/lemon/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/local/go/bin:/home/lemon/.foundry/bin:/home/lemon/.foundry/bin:/home/lemon/Android/Sdk/emulator:/home/lemon/Android/Sdk/platform-tools:/home/lemon/bin:/home/lemon/.foundry/bin:/home/lemon/.foundry/bin:/home/lemon/Android/Sdk/emulator:/home/lemon/Android/Sdk/platform-tools:/home/lemon/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  20.12.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  AggregateError [ENETUNREACH]: 
+      at internalConnectMultiple (node:net:1116:18)
+      at internalConnectMultiple (node:net:1184:5)
+      at internalConnectMultiple (node:net:1184:5)
+      at internalConnectMultiple (node:net:1184:5)
+      at internalConnectMultiple (node:net:1184:5)
+      at internalConnectMultiple (node:net:1184:5)
+      at internalConnectMultiple (node:net:1184:5)
+      at internalConnectMultiple (node:net:1184:5)
+      at internalConnectMultiple (node:net:1184:5)
+      at internalConnectMultiple (node:net:1184:5)
+
+npm manifest: 
+  {
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+      "autoprefixer": "^10.4.13",
+      "hardhat": "^2.13.0",
+      "postcss": "^8.4.21",
+      "tailwindcss": "^3.2.7"
+    },
+    "dependencies": {
+      "@openzeppelin/contracts": "^4.8.2",
+      "dotenv": "^16.0.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
